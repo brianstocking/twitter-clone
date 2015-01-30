@@ -6,34 +6,33 @@ $(document).ready(function(){
       $('.reply').hide();
          
        
-  $('.content').on('mouseenter',function(){
-        $('.tweet-actions').show();
 
-      }); 
-      $('.content').on('mouseenter',function(){
-        $('.stats').show();
-              
 
-      }); 
-  
-      $('.content').on('mouseenter',function(){
-        $('.reply').show();
+     $('.tweet').on('mouseenter',function(){
+       $('.tweet-actions', this).show();  
 
-      }); 
+     }); 
+
+      
      $('.content').on('mouseleave',function(){
         $('.tweet-actions').hide();
 
       }); 
-      $('.content').on('mouseleave',function(){
-        $('.stats').hide();
-              
-
-      }); 
   
-      $('.content').on('mouseleave',function(){
+    $('.tweet').on('click',function(){
+       $('.stats', this).show();
+       $('.reply', this).show();
+
+
+    });
+
+  
+     $('.content').on('mouseleave',function(){
+        $('.stats').hide();
         $('.reply').hide();
 
       }); 
+  
   
  
   //step 1
@@ -46,7 +45,10 @@ $(document).ready(function(){
   
   });
   
+  $('.tweet-compose').on('mouseleave', function(){
+    $('.tweet-compose').css('height','2.5em');
   
+   });
   
   $('.tweet-compose').on('keyup', function(){
     var count = 140 - $(this).val().length      
